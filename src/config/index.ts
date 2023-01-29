@@ -1,7 +1,14 @@
 import merge from "lodash.merge";
 import dev from "./dev";
+import type { MenuProps } from "antd";
 import production from "./production";
 import test from "./test";
+import {
+  LaptopOutlined,
+  NotificationOutlined,
+  UserOutlined,
+} from "@ant-design/icons";
+import React from "react";
 
 export type ConfigType = {
   /** @name api域名 */
@@ -22,6 +29,24 @@ const baseConfig: Partial<ConfigType> = {
   JWT_LOCALSTORAGE_KEY: "Authorization",
   LANG_LOCALSTORAGE_KEY: "Lang",
 };
+
+export const menuConfig: MenuProps["items"] = [
+  {
+    key: "DashBoard",
+    icon: React.createElement(UserOutlined),
+    label: "DashBoard",
+    children: [
+      {
+        key: "/demo",
+        label: "option1",
+      },
+      {
+        key: "/demo2",
+        label: "option2",
+      },
+    ],
+  },
+];
 
 export default (function () {
   switch (process.env.REACT_APP_ENV) {
