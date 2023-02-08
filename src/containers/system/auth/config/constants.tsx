@@ -1,5 +1,4 @@
 import { TableMetaData } from "@/types/auth";
-import { message } from "antd";
 
 const MENU_FLAG_ENUMS = {
   0: { text: "否" },

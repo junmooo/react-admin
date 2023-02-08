@@ -1,5 +1,4 @@
-import { Button, Form, Input, Modal, message } from "antd";
-import { auth } from "@/api";
+import { Button, Form, Modal, message } from "antd";
 import { memo, useEffect } from "react";
 import { TABLE_COLUMNS } from "../config/constants";
 import { getField } from "@/components/common/commenFunc";
@@ -19,7 +18,6 @@ const AuthModal = memo((props: AuthModalType) => {
       .validateFields()
       .then((values) => {
         console.log(values);
-        
       })
       .catch((info) => {
         message.error("校验失败" + info.errorFields);

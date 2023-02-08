@@ -1,37 +1,11 @@
-import React, { useEffect, useState } from "react";
-import {
-  Button,
-  Col,
-  Form,
-  Tree,
-  Modal,
-  Row,
-  Spin,
-  Table,
-  Tag,
-  message,
-  Card,
-  Descriptions,
-} from "antd";
-import type { DataNode, TreeProps } from "antd/es/tree";
+import { useEffect, useState } from "react";
+import { Button, Tree, Spin, message, Descriptions } from "antd";
+import type { TreeProps } from "antd/es/tree";
 
-import type { ColumnsType } from "antd/es/table";
 import { auth } from "@/api";
-import Register from "@/containers/auth/modules/Register";
-import { PlusOutlined, SearchOutlined } from "@ant-design/icons";
-import {
-  TABLE_COLUMNS,
-  MENU_FLAG_ENUMS,
-  HAS_CHILD_ENUMS,
-} from "./config/constants";
-import {
-  DataType,
-  Resource,
-  ResourceWrapper,
-  TableMetaData,
-} from "@/types/auth";
+import { TABLE_COLUMNS, MENU_FLAG_ENUMS } from "./config/constants";
+import { ResourceWrapper, TableMetaData } from "@/types/auth";
 import { useRequest } from "ahooks";
-import { getField } from "@/components/common/commenFunc";
 
 import "./auth.less";
 import AuthModal from "./modules/AuthModal";

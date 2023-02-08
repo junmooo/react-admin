@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Button, Col, Form, Modal, Row, Spin, Table, Tag, message } from "antd";
+import { Button, Col, Form, Modal, Row, Spin, Table, message } from "antd";
 import type { ColumnsType } from "antd/es/table";
 import { auth } from "@/api";
 import Register from "@/containers/auth/modules/Register";

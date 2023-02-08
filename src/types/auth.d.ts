@@ -1,4 +1,3 @@
-import { type } from "os";
 import type { DataNode } from "antd/es/tree";
 
 type LoginParam = {

@@ -1,8 +1,8 @@
 import Cookies from "js-cookie";
-import React, { Fragment, useEffect, useState } from "react";
+import React from "react";
 
 import { RouteObject, useLocation, useNavigate } from "react-router-dom";
-import { useRoutes, useSearchParams } from "react-router-dom";
+import { useRoutes } from "react-router-dom";
 /**
  * 路由守卫
  * 处理url中传递来的单点登录的用户信息和国际化配置

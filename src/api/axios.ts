@@ -1,5 +1,4 @@
 import axios from "axios";
-import { myIntl } from "@/locale";
 import { message } from "antd";
 import Cookies from "js-cookie";
 
