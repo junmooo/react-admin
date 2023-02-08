@@ -1,6 +1,7 @@
+import Cookies from "js-cookie";
 import React, { Fragment, useEffect, useState } from "react";
 
-import type { RouteObject } from "react-router-dom";
+import { RouteObject, useLocation, useNavigate } from "react-router-dom";
 import { useRoutes, useSearchParams } from "react-router-dom";
 /**
  * 路由守卫
@@ -11,6 +12,14 @@ const RouterGurad = React.memo(function RouterGurad(props: {
 }) {
   const { routes } = props;
   const route = useRoutes(routes);
+  const location = useLocation();
+  const navigate = useNavigate();
+  const token = Cookies.get("token");
+  console.log(location.pathname);
+
+  if (location.pathname !== "/login" && !token) {
+    navigate("/login");
+  }
   return route;
 });
 

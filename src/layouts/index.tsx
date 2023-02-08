@@ -1,20 +1,12 @@
 import React from "react";
-import {
-  LaptopOutlined,
-  NotificationOutlined,
-  UserOutlined,
-} from "@ant-design/icons";
-import type { MenuProps } from "antd";
+
 import { Breadcrumb, Layout, Menu, theme } from "antd";
 import { Outlet } from "react-router-dom";
-import { menuConfig } from "@/config";
 import CustMenu from "./menu";
-import { useNavigate } from "react-router-dom";
 
 const { Header, Content, Sider } = Layout;
 
 const Layouts: React.FC = (props) => {
-  const navigate = useNavigate();
   const {
     token: { colorBgContainer },
   } = theme.useToken();

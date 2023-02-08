@@ -12,10 +12,10 @@ module.exports = {
     // https: true,
     proxy: {
       "/api": {
-        target: `https://uatapp02.easyhro.com`,
+        target: `http://localhost:8080`,
         changeOrigin: true,
         pathRewrite: {
-          "^/api": "",
+          "^/api": "/",
         },
       },
     },

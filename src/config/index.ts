@@ -40,9 +40,24 @@ export const menuConfig: MenuProps["items"] = [
         key: "/demo",
         label: "option1",
       },
+    ],
+  },
+  {
+    key: "system_management",
+    icon: React.createElement(UserOutlined),
+    label: "系统管理",
+    children: [
       {
-        key: "/demo2",
-        label: "option2",
+        key: "/role",
+        label: "角色管理",
+      },
+      {
+        key: "/auth",
+        label: "权限管理",
+      },
+      {
+        key: "/user",
+        label: "用户管理",
       },
     ],
   },

@@ -5,11 +5,12 @@ import { useNavigate } from "react-router-dom";
 
 const CustMenu = () => {
   const navigate = useNavigate();
+
   return (
     <div className="menu_container">
       <Menu
         mode="inline"
-        defaultSelectedKeys={["/demo2"]}
+        // defaultSelectedKeys={["/demo2"]}
         defaultOpenKeys={["DashBoard"]}
         style={{ borderRight: 0 }}
         items={menuConfig}
