@@ -13,7 +13,7 @@ const Login: React.FC = () => {
       .login(values)
       .then(() => {
         message.success("登陆成功");
-        navigate("/demo");
+        navigate("/workbench");
       })
       .catch((err) => {
         console.log(err);

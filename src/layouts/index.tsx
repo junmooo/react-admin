@@ -1,8 +1,9 @@
 import React from "react";
 
 import { Breadcrumb, Layout, Menu, theme } from "antd";
-import { Outlet } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 import CustMenu from "./menu";
+import "./style.less";
 
 const { Header, Content, Sider } = Layout;
 
@@ -11,10 +12,12 @@ const Layouts: React.FC = (props) => {
     token: { colorBgContainer },
   } = theme.useToken();
 
+  const { key, pathname } = useLocation();
+
   return (
-    <Layout>
+    <Layout style={{ minWidth: "1200px" }}>
       <Header className="header">
-        <div className="logo" />
+        <div className="logo">摄影专辑 管理后台</div>
       </Header>
       <Layout>
         <Sider width={250} style={{ background: colorBgContainer }}>
@@ -22,9 +25,7 @@ const Layouts: React.FC = (props) => {
         </Sider>
         <Layout style={{ padding: "0 24px 24px" }}>
           <Breadcrumb style={{ margin: "16px 0" }}>
-            <Breadcrumb.Item>Home</Breadcrumb.Item>
-            <Breadcrumb.Item>List</Breadcrumb.Item>
-            <Breadcrumb.Item>App</Breadcrumb.Item>
+            <Breadcrumb.Item>{pathname.split("/").join(" | ")}</Breadcrumb.Item>
           </Breadcrumb>
           <Outlet />
         </Layout>

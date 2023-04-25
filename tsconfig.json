@@ -20,9 +20,9 @@
       "@/*": ["./src/*"] // 后缀必须带上/*
     },
     "typeRoots": [
-      "src/custom_types",
+      "src/types",
       "node_modules/@types"
     ]
   },
-  "include": ["src"]
+  "include": ["src/**/*"]
 }

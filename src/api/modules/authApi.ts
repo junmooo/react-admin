@@ -1,7 +1,6 @@
 import request from "@/api/axios";
 import { LoginParam, RegisterParam } from "@/types/auth";
 import { md5 } from "@/utils/md5";
-import { message } from "antd";
 import Cookies from "js-cookie";
 
 const login = async (params: LoginParam) => {

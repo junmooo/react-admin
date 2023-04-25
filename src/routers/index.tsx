@@ -1,11 +1,11 @@
 import type { RouteObject } from "react-router-dom";
 import { Navigate } from "react-router-dom";
-import demo from "./module/demo";
+import workbench from "./module/workbench";
 import login from "./module/loginRouter";
 import sys from "./module/sysRouter";
 
 const routeConfig = [
-  ...demo,
+  ...workbench,
   ...login,
   ...sys,
   {

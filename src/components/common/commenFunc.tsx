@@ -1,5 +1,7 @@
 import { DataType } from "@/types/auth";
 import { DatePicker, Input, Select } from "antd";
+import TextArea from "antd/es/input/TextArea";
+import ImgUpload from "./ImgUpload";
 const { RangePicker } = DatePicker;
 
 const getOptions = (enums: { [x: string]: { text: string } }) => {
@@ -29,6 +31,16 @@ const getField = (item: DataType) => {
           format={item.dateFormatter}
         />
       );
+    case "textArea":
+      return (
+        <TextArea
+          allowClear={item.allowClear || true}
+          rows={5}
+          placeholder={item.placeholder || "请输入"}
+        />
+      );
+    case "imgUpload":
+      return <ImgUpload onUpload={item.onUpload} fileList={[]} />;
     default:
       return (
         <Input

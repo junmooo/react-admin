@@ -3,11 +3,7 @@ import dev from "./dev";
 import type { MenuProps } from "antd";
 import production from "./production";
 import test from "./test";
-import {
-  LaptopOutlined,
-  NotificationOutlined,
-  UserOutlined,
-} from "@ant-design/icons";
+import { LaptopOutlined, UserOutlined } from "@ant-design/icons";
 import React from "react";
 
 export type ConfigType = {
@@ -32,13 +28,13 @@ const baseConfig: Partial<ConfigType> = {
 
 export const menuConfig: MenuProps["items"] = [
   {
-    key: "DashBoard",
-    icon: React.createElement(UserOutlined),
-    label: "DashBoard",
+    key: "workbench",
+    icon: React.createElement(LaptopOutlined),
+    label: "工作台",
     children: [
       {
-        key: "/demo",
-        label: "option1",
+        key: "/workbench",
+        label: "作品集管理",
       },
     ],
   },
@@ -47,14 +43,14 @@ export const menuConfig: MenuProps["items"] = [
     icon: React.createElement(UserOutlined),
     label: "系统管理",
     children: [
-      {
-        key: "/role",
-        label: "角色管理",
-      },
-      {
-        key: "/auth",
-        label: "权限管理",
-      },
+      // {
+      //   key: "/role",
+      //   label: "角色管理",
+      // },
+      // {
+      //   key: "/auth",
+      //   label: "权限管理",
+      // },
       {
         key: "/user",
         label: "用户管理",

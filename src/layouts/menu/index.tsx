@@ -10,8 +10,8 @@ const CustMenu = () => {
     <div className="menu_container">
       <Menu
         mode="inline"
-        // defaultSelectedKeys={["/demo2"]}
-        defaultOpenKeys={["DashBoard"]}
+        defaultSelectedKeys={["/workbench"]}
+        defaultOpenKeys={["workbench"]}
         style={{ borderRight: 0 }}
         items={menuConfig}
         onClick={({ key }) => navigate(key)}
