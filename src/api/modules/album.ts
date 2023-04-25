@@ -56,7 +56,7 @@ const queryByAlbum = async (params: { id: string }) => {
     params,
   });
 };
-const deleteById = async (params: { id: string }) => {
+const deleteById = async (params: { id: string; fileName: string }) => {
   return await request({
     url: `/api/photo/deleteById`,
     method: "GET",

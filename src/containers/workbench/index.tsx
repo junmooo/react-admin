@@ -271,7 +271,7 @@ const AlbumManage: React.FC = () => {
               type="link"
               style={{ color: "red" }}
               onClick={() => {
-                deleteById({ id: record.id });
+                deleteById({ id: record.id, fileName: record.name });
               }}
             >
               删除
