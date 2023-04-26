@@ -40,7 +40,13 @@ const getField = (item: DataType) => {
         />
       );
     case "imgUpload":
-      return <ImgUpload onUpload={item.onUpload} fileList={[]} />;
+      return (
+        <ImgUpload
+          onUpload={item.onUpload}
+          fileList={item.fileList}
+          onRemove={item.onRemove}
+        />
+      );
     default:
       return (
         <Input

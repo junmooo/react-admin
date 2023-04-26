@@ -1,11 +1,8 @@
-import { SearchParams, Enums, DataType } from "@/types/auth";
-import { Form, FormInstance, Input, Tag, Image, Badge } from "antd";
+import { SearchParams, DataType } from "@/types/auth";
+import { Image, Badge } from "antd";
 import { ColumnsType } from "antd/es/table";
 import moment from "moment";
-import React from "react";
-import { DownOutlined, EditOutlined } from "@ant-design/icons";
 
-const EditableContext = React.createContext<FormInstance<any> | null>(null);
 const RULE_REQUIRED = [{ required: true, message: "该项为必填项" }];
 
 const TABLE_COLUMNS: (ColumnsType<DataType>[number] & {
@@ -87,7 +84,7 @@ const EXPANDED_ROW_COLUMN: ColumnsType<DataType> = [
     title: "上传时间",
     dataIndex: "timeCreated",
     key: "timeCreated",
-    render: (value, record, index) => {
+    render: (value) => {
       return moment(value).format("yy-MM-DD hh:mm");
     },
   },
@@ -111,7 +108,7 @@ const EXPANDED_ROW_COLUMN: ColumnsType<DataType> = [
       const offsetIndex = v.lastIndexOf(".");
       const preUrl =
         v.substring(0, offsetIndex) + "-pre" + v.substring(offsetIndex);
-      return <Image src={preUrl} />;
+      return <Image src={preUrl} preview={false} />;
     },
   },
 ];

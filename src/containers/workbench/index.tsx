@@ -1,16 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useCallback, useEffect, useState } from "react";
-import {
-  Button,
-  Form,
-  Spin,
-  Table,
-  Badge,
-  TableColumnsType,
-  message,
-  InputNumber,
-  Image,
-} from "antd";
+import React, { useCallback, useState } from "react";
+import { Button, Form, Spin, Table, message, InputNumber } from "antd";
 import type { ColumnsType } from "antd/es/table";
 import { album } from "@/api";
 import { ALBUM, EXPANDED_ROW_COLUMN, TABLE_COLUMNS } from "./config/constants";
@@ -77,7 +67,6 @@ const AlbumManage: React.FC = () => {
     {
       onSuccess() {
         message.success("修改成功");
-        setShowModal(false);
         runQueryByPage({
           pgNum: 1,
           pgSize: 10,
@@ -167,6 +156,18 @@ const AlbumManage: React.FC = () => {
                 name: "url",
                 key: "url",
                 valueType: "imgUpload",
+                fileList: record.photos.map((e: Photo) => ({
+                  uid: e.id,
+                  name: e.name,
+                  url:
+                    e?.url?.substring(0, e.url.lastIndexOf(".")) +
+                    "-pre" +
+                    e?.url?.substring(e.url.lastIndexOf(".")),
+                  status: "done",
+                })),
+                onRemove: (p: { id: string; fileName: string }) => {
+                  deleteById(p);
+                },
                 onUpload: (file: File) => {
                   const fd = new FormData();
                   fd.append("file", file);
@@ -288,6 +289,7 @@ const AlbumManage: React.FC = () => {
         columns={PHOTOS_COLUNM}
         dataSource={param.photos}
         pagination={false}
+        rowKey={"id"}
       />
     );
   };

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useEffect, useState } from "react";
 import { PlusOutlined } from "@ant-design/icons";
 import { Modal, Upload } from "antd";
 import type { RcFile, UploadProps } from "antd/es/upload";
@@ -15,9 +15,10 @@ const getBase64 = (file: RcFile): Promise<string> =>
 type Iprops = {
   onUpload: (p: File) => void;
   fileList: UploadFile[];
+  onRemove: (p: { id: string; fileName: string }) => void;
 };
 
-const ImgUpload = ({ onUpload, fileList: files }: Iprops) => {
+const ImgUpload = ({ onUpload, fileList: files, onRemove }: Iprops) => {
   const [previewOpen, setPreviewOpen] = useState(false);
   const [previewImage, setPreviewImage] = useState("");
   const [previewTitle, setPreviewTitle] = useState("");
@@ -25,12 +26,18 @@ const ImgUpload = ({ onUpload, fileList: files }: Iprops) => {
 
   const handleCancel = () => setPreviewOpen(false);
 
+  useEffect(() => {
+    setFileList(files);
+  }, [files]);
+
   const handlePreview = async (file: UploadFile) => {
     if (!file.url && !file.preview) {
       file.preview = await getBase64(file.originFileObj as RcFile);
     }
 
-    setPreviewImage(file.url || (file.preview as string));
+    setPreviewImage(
+      file.url?.replaceAll("-pre", "") || (file.preview as string)
+    );
     setPreviewOpen(true);
     setPreviewTitle(
       file.name || file.url!.substring(file.url!.lastIndexOf("/") + 1)
@@ -54,14 +61,15 @@ const ImgUpload = ({ onUpload, fileList: files }: Iprops) => {
         listType="picture-card"
         beforeUpload={(file) => {
           // setFileList([...fileList, file]);
-          console.log("file", file);
           onUpload(file);
           return false;
         }}
         fileList={fileList}
         onPreview={handlePreview}
         onChange={handleChange}
-        // style={{ width: "1000px" }}
+        onRemove={(file) => {
+          onRemove({ id: file.uid, fileName: file.name });
+        }}
       >
         {fileList.length >= 100 ? null : uploadButton}
       </Upload>

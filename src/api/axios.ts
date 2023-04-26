@@ -42,20 +42,18 @@ function request(axiosConfig: Config) {
 
   service.interceptors.response.use(
     (response) => {
-      if (response.data.code === 5) {
-        message.error("token 过期, 请重新登陆", 5);
-        window.location.href = "/#/login";
-        Cookies.remove("token");
-        return Promise.reject(null);
-      }
       if (response.data.code !== 1) {
-        message.error(response?.data.msg, 5);
+        message.error(response?.data.msg, 3);
         return Promise.reject(response.data);
       }
 
       return Promise.resolve(response.data);
     },
     (error) => {
+      if (error.response.status === 403) {
+        message.error("token过期，请重新登录", 3);
+        window.location.href = "/#/login";
+      }
       return Promise.reject(error);
     }
   );
