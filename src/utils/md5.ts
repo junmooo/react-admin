@@ -1,3 +1,4 @@
+/* eslint-disable no-control-regex */
 let rotateLeft = function (lValue: number, iShiftBits: number) {
   return (lValue << iShiftBits) | (lValue >>> (32 - iShiftBits));
 };
@@ -146,7 +147,7 @@ const uTF8Encode = function (string: string) {
 };
 
 function md5(string: string) {
-  let x = Array();
+  let x = [];
   let k, AA, BB, CC, DD, a, b, c, d;
   let S11 = 7,
     S12 = 12,

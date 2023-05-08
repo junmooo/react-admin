@@ -1,5 +1,4 @@
-import React from "react";
-import { Button, Form, Modal, Space, Spin } from "antd";
+import { Form, Modal, Spin } from "antd";
 import { getField } from "./commenFunc";
 
 const FormModal = (props: FormModalProps) => {

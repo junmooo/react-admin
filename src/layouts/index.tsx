@@ -1,18 +1,18 @@
 import React from "react";
 
-import { Breadcrumb, Layout, Menu, theme } from "antd";
+import { Breadcrumb, Layout, theme } from "antd";
 import { Outlet, useLocation } from "react-router-dom";
 import CustMenu from "./menu";
 import "./style.less";
 
-const { Header, Content, Sider } = Layout;
+const { Header, Sider } = Layout;
 
 const Layouts: React.FC = (props) => {
   const {
     token: { colorBgContainer },
   } = theme.useToken();
 
-  const { key, pathname } = useLocation();
+  const { pathname } = useLocation();
 
   return (
     <Layout style={{ minWidth: "1200px" }}>

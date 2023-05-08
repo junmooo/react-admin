@@ -1,14 +1,13 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { Form, Button, Row, Col, message, Spin, FormInstance } from "antd";
+import { Form, Button, Row, Col, message, FormInstance } from "antd";
 import moment from "moment";
 import { ALBUM, SEACH_COLUMNS } from "../config/constants";
-import { PlusOutlined, SearchOutlined, DownOutlined } from "@ant-design/icons";
+import { PlusOutlined, SearchOutlined } from "@ant-design/icons";
 
 import { getField } from "@/components/common/commenFunc";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useRequest } from "ahooks";
 import { album } from "@/api";
-import FormModal from "@/components/common/FormModal";
 
 type IProps = {
   runQueryByPage: (p: QueyAlbumParam) => void;

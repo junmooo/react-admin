@@ -1,7 +1,6 @@
 import merge from "lodash.merge";
 import dev from "./dev";
 import type { MenuProps } from "antd";
-import production from "./production";
 import test from "./test";
 import { LaptopOutlined, UserOutlined } from "@ant-design/icons";
 import React from "react";
@@ -66,7 +65,7 @@ export default (function () {
     case "test":
       return merge(baseConfig, test);
     case "production":
-      return merge(baseConfig, production);
+      return merge(baseConfig, {});
     default:
       return baseConfig;
   }
