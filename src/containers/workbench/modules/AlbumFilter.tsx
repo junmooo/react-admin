@@ -27,7 +27,6 @@ function AlbumFilter(props: IProps) {
     modalForm,
     show,
     setShow,
-    loading,
     setLoading,
   } = props;
   const [form] = Form.useForm();
