@@ -3,7 +3,7 @@ import "./demo.less";
 interface Iprops {}
 
 const Demo2 = React.memo(function Demo(props: Iprops) {
-  return <div className="container">hahahahahhaahhaha1</div>;
+  return <div className="container">hahahahahhaahhaha12</div>;
 });
 
 export default Demo2;
