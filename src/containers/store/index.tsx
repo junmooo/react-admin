@@ -12,7 +12,7 @@ import { UploadOutlined } from "@ant-design/icons";
 
 import { useRequest } from "ahooks";
 import { useEffect, useState } from "react";
-const { Header, Content, Sider } = Layout;
+const { Content, Sider } = Layout;
 
 function Store() {
   const [data, setData] = useState([]);
@@ -39,7 +39,7 @@ function Store() {
   });
   useEffect(() => {
     runList();
-  }, []);
+  }, [runList]);
 
   const props: UploadProps = {
     name: "file",
